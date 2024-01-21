@@ -1,0 +1,96 @@
+{% extends 'back/master.html' %}
+{% load static %}
+
+
+
+{% block mainblock %}
+    <!-- Datatables Header -->
+    <div class="content-header">
+        <div class="header-section">
+            <h1>
+                <i class="fa fa-table"></i>Permissions<br><small></small>
+            </h1>
+        </div>
+    </div>
+    <ul class="breadcrumb breadcrumb-top">
+        <li>Permissions</li>
+
+    </ul>
+    <!-- END Datatables Header -->
+
+    <div class='block'>
+        <form action="{% url 'manager_permission_add' %}" method="post" enctype="multipart/form-data"
+              class="form-horizontal form-bordered">
+            {% csrf_token %}
+            {% if error %}
+                <h2>
+                    <i class="fa"></i> Error <br><small>{{ error }}</small>
+                </h2>
+            {% endif %}
+            <div class="form-group">
+                <div class="col-md-6">
+                    <input type="text" class="form-control" placeholder="Permission Name" id="perm_add"
+                           name="perm_add">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-6">
+                    <input type="text" class="form-control" placeholder="Permission Code Name" id="perm_code_name"
+                           name="perm_code_name">
+                </div>
+            </div>
+
+            <div class="form-group ">
+                <div class="col-md-6">
+                    <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-angle-right"></i>
+                        Submit
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- Datatables Content -->
+    <div class="block full">
+        <div class="block-title">
+            <h2><strong>Permissions</strong> List</h2>
+        </div>
+        <div class="table-responsive">
+            <table id="example-datatable" class="table table-vcenter table-condensed table-bordered">
+                <thead>
+                <tr>
+                    <th class="text-center">ID</th>
+                    <th class="text-center">Name</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                {% for perm in perms %}
+                    <tr>
+                        <td class="text-center">{{ perm.pk }}</td>
+                        <td class="text-center">{{ perm.name }}</td>
+
+
+                        <td class="text-center">
+                            <div class="btn-group">
+                                <a href="{% url 'manager_permission_del' pk=perm.pk %}" data-toggle="tooltip"
+                                   title="Delete"
+                                   class="btn btn-xs btn-danger"><i class="fa fa-times">Delete</i></a>
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- END Datatables Content -->
+
+{% endblock %}
+
+{% block footerblock %}
+    <!-- Load and execute javascript code used only in this page -->
+    <script src="{% static 'back/js/pages/tablesDatatables.js' %}"></script>
+    <script>$(function () {
+        TablesDatatables.init();
+    });</script>
+{% endblock %}

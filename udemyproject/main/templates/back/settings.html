@@ -1,0 +1,147 @@
+{% extends 'back/master.html' %}
+{% load static %}
+
+{% block headblock %}
+
+    <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+
+{% endblock %}
+
+{% block mainblock %}
+    <div class="content-header">
+        <div class="header-section">
+            <h1>
+                <i class="fa fa-table"></i>Settings<br><small>Site settings</small>
+            </h1>
+        </div>
+    </div>
+    <ul class="breadcrumb breadcrumb-top">
+        <li>News</li>
+        <li><a href="#">Settings</a></li>
+    </ul>
+    <div class="row">
+        <!-- Basic Form Elements Block -->
+        <div class="block">
+            <!-- Basic Form Elements Title -->
+            <div class="block-title">
+                <div class="block-options pull-right">
+                    <a href="javascript:void(0)"
+                       class="btn btn-alt btn-sm btn-default toggle-bordered enable-tooltip" data-toggle="button"
+                       title="Toggles .form-bordered class">No Borders</a>
+                </div>
+                <h2><strong>Add news</strong></h2>
+            </div>
+            <!-- END Form Elements Title -->
+
+            <!-- Basic Form Elements Content -->
+            <form action="{% url 'site_settings' %}" method="post" enctype="multipart/form-data"
+                  class="form-horizontal form-bordered">
+                {% csrf_token %}
+                {% if error %}
+                    <h2>
+                        <i class="fa"></i> Error <br><small>{{ error }}</small>
+                    </h2>
+                {% endif %}
+                <div class="form-group">
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" placeholder="Site Title" id="name"
+                               name="name" value="{{ site.name }}">
+                    </div>
+                    <div class="col-md-6">
+
+                        <input type="text" class="form-control" placeholder="Site Tell" id="tell"
+                               name="tell" value="{{ site.tell }}">
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" placeholder="FB" id="fb"
+                               name="fb" value="{{ site.fb }}">
+                    </div>
+                    <div class="col-md-6">
+
+                        <input type="text" class="form-control" placeholder="TW" id="tw"
+                               name="tw" value="{{ site.tw }}">
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" placeholder="YT" id="yt"
+                               name="yt" value="{{ site.yt }}">
+                    </div>
+                    <div class="col-md-6">
+
+                        <input type="text" class="form-control" placeholder="link" id="link"
+                               name="link" value="{{ site.link }}">
+
+                    </div>
+                </div>
+            <div class="form-group">
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" placeholder="seotxt" id="seotxt"
+                               name="seotxt" value="{{ site.seo_txt }}">
+                    </div>
+                    <div class="col-md-6">
+
+                        <input type="text" class="form-control" placeholder="seokeywords" id="seokeywords"
+                               name="seokeywords" value="{{ site.seo_key_words }}">
+
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <textarea type="text" class="form-control" placeholder="Txt" name="about"
+                                  id="about">{{ site.about }}</textarea>
+                    </div>
+                    <script>
+                        CKEDITOR.replace('about');
+                    </script>
+
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-6">
+                        <input type="file" class="form-control" placeholder="Image" id="myfile"
+                               name="myfile"></input>
+                    </div>
+                    <div class="col-md-6">
+                        <img style="display: inline-block; width: 400px; height: 50px;" src="{{ site.picurl }}">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-6">
+                        <input type="file" class="form-control" placeholder="Image" id="myfile2"
+                               name="myfile2"></input>
+                    </div>
+                    <div class="col-md-6">
+                        <img style="display: inline-block; width: 400px; height: 50px;" src="{{ site.picurl2 }}">
+                    </div>
+                </div>
+
+
+                <div class="form-group ">
+                    <div class="col-md-6">
+                        <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-angle-right"></i> Submit
+                        </button>
+                    </div>
+                </div>
+
+
+            </form>
+            <!-- END Basic Form Elements Content -->
+        </div>
+    </div>
+{% endblock %}
+
+{% block footerblock %}
+
+    <script src="{% static 'back/js/pages/formsGeneral.js' %}"></script>
+    <script>$(function () {
+        FormsGeneral.init();
+    });</script>
+{% endblock %}

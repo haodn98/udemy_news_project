@@ -1,0 +1,87 @@
+{% extends 'back/master.html' %}
+{% load static %}
+
+
+
+{% block mainblock %}
+    <!-- Datatables Header -->
+    <div class="content-header">
+        <div class="header-section">
+            <h1>
+                <i class="fa fa-table"></i>IP Blacklist<br><small></small>
+            </h1>
+        </div>
+    </div>
+    <ul class="breadcrumb breadcrumb-top">
+        <li>Categories</li>
+        <li><a href="/panel/blacklist">IP Blacklist</a></li>
+    </ul>
+    <!-- END Datatables Header -->
+     <div class='block'>
+        <form action="{% url 'blacklist_add' %}" method="post" enctype="multipart/form-data"
+              class="form-horizontal form-bordered">
+            {% csrf_token %}
+            {% if error %}
+                <h2>
+                    <i class="fa"></i> Error <br><small>{{ error }}</small>
+                </h2>
+            {% endif %}
+            <div class="form-group">
+                <div class="col-md-6">
+                    <input type="text" class="form-control" placeholder="IP to block" id="ip_to_block"
+                           name="ip_to_block">
+                </div>
+            </div>
+
+            <div class="form-group ">
+                <div class="col-md-6">
+                    <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-angle-right"></i>
+                        Submit
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- Datatables Content -->
+    <div class="block full">
+        <div class="block-title">
+            <h2><strong>Categories</strong> List</h2>
+        </div>
+        <div class="table-responsive">
+            <table id="example-datatable" class="table table-vcenter table-condensed table-bordered">
+                <thead>
+                <tr>
+                    <th class="text-center">ID</th>
+                    <th>IP-address</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for blocked_ip in blocked_ips %}
+                    <tr>
+                        <td class="text-center">{{ blocked_ip.pk }}</td>
+                        <td class="text-center">{{ blocked_ip.ip }}</td>
+
+                        <td class="text-center">
+                            <div class="btn-group">
+                                <a href="{% url "blacklist_del" pk=blocked_ip.pk%}" data-toggle="tooltip" title="Delete"
+                                   class="btn btn-xs btn-danger"><i class="fa fa-times">Delete</i></a>
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- END Datatables Content -->
+
+{% endblock %}
+
+{% block footerblock %}
+    <!-- Load and execute javascript code used only in this page -->
+    <script src="{% static 'back/js/pages/tablesDatatables.js' %}"></script>
+    <script>$(function () {
+        TablesDatatables.init();
+    });</script>
+{% endblock %}

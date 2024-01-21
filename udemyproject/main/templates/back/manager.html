@@ -1,0 +1,89 @@
+{% extends 'back/master.html' %}
+{% load static %}
+
+
+
+{% block mainblock %}
+    <!-- Datatables Header -->
+    <div class="content-header">
+        <div class="header-section">
+            <h1>
+                <i class="fa fa-table"></i>Manager list<br><small></small>
+            </h1>
+        </div>
+    </div>
+    <!-- END Datatables Header -->
+
+    <!-- Datatables Content -->
+    <div class="block full">
+        <div class="block-title">
+            <h2><strong>Manager</strong> List</h2>
+        </div>
+        <div class="table-responsive">
+            <table id="example-datatable" class="table table-vcenter table-condensed table-bordered">
+                <thead>
+                <tr>
+                    <th class="text-center">ID</th>
+
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Username</th>
+                    <th>IP</th>
+
+                    <th class="text-center">Actions</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                {% for user in users_list %}
+                    <tr>
+                        <td class="text-center">{{ user.pk }}</td>
+                        <td class="text-center">{{ user.name }}</td>
+                        <td class="text-center">{{ user.email }}</td>
+                        <td class="text-center">{{ user.utxt }}</td>
+                        <td class="text-center">{{ user.ip }}</td>
+                            <td class="text-center">
+                                <div class="btn-group">
+                                    <a href="{% url 'user_groups' pk=user.pk %}" data-toggle="tooltip" title="Edit"
+                                   class="btn btn-xs btn-default"><i class="fa "></i>Groups</a>
+                                     <a href="{% url 'user_perms' pk=user.pk %}" data-toggle="tooltip" title="Edit"
+                                   class="btn btn-xs btn-default"><i class="fa "></i>Permissions</a>
+                                    <a href="{% url 'manager_del' pk=user.pk %}" data-toggle="tooltip" title="Delete"
+                                       class="btn btn-xs btn-danger"><i class="fa">Delete</i></a>
+                                </div>
+                            </td>
+
+
+
+                    </tr>
+                {% endfor %}
+                {#                <tr>#}
+                {#                    <td class="text-center"><img src="{% static 'back/img/placeholders/avatars/avatar15.jpg' %}" alt="avatar"#}
+                {#                                                 class="img-circle"></td>#}
+                {#                    <td><a href="javascript:void(0)">client1</a></td>#}
+                {#                    <td>client1@company.com</td>#}
+                {#                    <td><span class="label label-info">Business</span></td>#}
+                {#                    <td class="text-center">#}
+                {#                        <div class="btn-group">#}
+                {#                            <a href="javascript:void(0)" data-toggle="tooltip" title="Edit"#}
+                {#                               class="btn btn-xs btn-default"><i class="fa fa-pencil"></i></a>#}
+                {#                            <a href="javascript:void(0)" data-toggle="tooltip" title="Delete"#}
+                {#                               class="btn btn-xs btn-danger"><i class="fa fa-times"></i></a>#}
+                {#                        </div>#}
+                {#                    </td>#}
+                {#                </tr>#}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- END Datatables Content -->
+
+{% endblock %}
+
+{% block footerblock %}
+    <!-- Load and execute javascript code used only in this page -->
+    <script src="{% static 'back/js/pages/tablesDatatables.js' %}"></script>
+    <script>$(function () {
+        TablesDatatables.init();
+    });</script>
+{% endblock %}

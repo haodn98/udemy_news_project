@@ -1,0 +1,75 @@
+{% extends 'back/master.html' %}
+{% load static %}
+
+
+{% block mainblock %}
+    <!-- Datatables Header -->
+    <div class="content-header">
+        <div class="header-section">
+            <h1>
+                <i class="fa fa-table"></i>Phones list<br><small></small>
+            </h1>
+        </div>
+    </div>
+    <ul class="breadcrumb breadcrumb-top">
+        <li>Phones</li>
+        <li><a href="/panel/news/list">List</a></li>
+    </ul>
+    <!-- END Datatables Header -->
+
+    <!-- Datatables Content -->
+    <div class="block full">
+        <div class="block-title">
+            <h2><strong>Phones</strong> List</h2>
+        </div>
+        <div class="table-responsive">
+            <table id="example-datatable" class="table table-vcenter table-condensed table-bordered">
+                <thead>
+                <tr>
+                    <th class="text-center">ID</th>
+                    <th class="text-center">Phone</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for phone in phones %}
+                    <tr>
+                        <td class="text-center">{{ phone.pk }}</td>
+                        <td class="text-center">{{ phone.txt }}</td>
+                        <td class="text-center">
+                            <div class="btn-group">
+                                <a href="{% url 'news_letter_to_del' pk=phone.pk %}" data-toggle="tooltip" title="Delete"
+                                   class="btn btn-xs btn-danger"><i class="fa fa-times">Delete</i></a>
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+                {#                <tr>#}
+                {#                    <td class="text-center"><img src="{% static 'back/img/placeholders/avatars/avatar15.jpg' %}" alt="avatar"#}
+                {#                                                 class="img-circle"></td>#}
+                {#                    <td><a href="javascript:void(0)">client1</a></td>#}
+                {#                    <td>client1@company.com</td>#}
+                {#                    <td><span class="label label-info">Business</span></td>#}
+                {#                    <td class="text-center">#}
+                {#                        <div class="btn-group">#}
+                {#                            <a href="javascript:void(0)" data-toggle="tooltip" title="Edit"#}
+                {#                               class="btn btn-xs btn-default"><i class="fa fa-pencil"></i></a>#}
+                {#                            <a href="javascript:void(0)" data-toggle="tooltip" title="Delete"#}
+                {#                               class="btn btn-xs btn-danger"><i class="fa fa-times"></i></a>#}
+                {#                        </div>#}
+                {#                    </td>#}
+                {#                </tr>#}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- END Datatables Content -->
+
+{% endblock %}
+
+{% block footerblock %}
+    <!-- Load and execute javascript code used only in this page -->
+    <script src="{% static 'back/js/pages/tablesDatatables.js' %}"></script>
+    <script>$(function () {
+        TablesDatatables.init();
+    });</script>
+{% endblock %}

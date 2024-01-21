@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3adba5ed-f033-4f1c-89a9-ac80c94c26db" name="Changes" comment="c2" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="HTML File" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="2226e858-87dc-49ba-acf5-333a0502bdda" />
+        <option name="url" value="https://github.com/haodn98/test_project.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2V4Cpnn14z03iFRVehYA7CuLWyg" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/Andrew/OneDrive/Рабочий стол/for_git_udemy_news",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "vcs.Git",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "ChangesTree.GroupingKeys": [
+      "directory"
+    ],
+    "DatabaseDriversLRU": [
+      "sqlite"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Andrew\OneDrive\Рабочий стол\test\udemyproject\main\templates" />
+      <recent name="C:\Users\Andrew\OneDrive\Рабочий стол\test\udemyproject\main\templates\back" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Andrew\OneDrive\Рабочий стол\test\udemyproject\main\static" />
+      <recent name="C:\Users\Andrew\OneDrive\Рабочий стол\test\udemyproject\main\static\back" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3adba5ed-f033-4f1c-89a9-ac80c94c26db" name="Changes" comment="" />
+      <created>1694086152141</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1694086152141</updated>
+      <workItem from="1694086157547" duration="1148000" />
+      <workItem from="1694087612787" duration="21394000" />
+      <workItem from="1694205392778" duration="19436000" />
+      <workItem from="1694530949158" duration="331000" />
+      <workItem from="1694531296858" duration="16241000" />
+      <workItem from="1694638212513" duration="626000" />
+      <workItem from="1694726264642" duration="200000" />
+      <workItem from="1694726488872" duration="6912000" />
+      <workItem from="1694781325852" duration="2532000" />
+      <workItem from="1695913186591" duration="6417000" />
+      <workItem from="1696194962960" duration="454000" />
+      <workItem from="1696587179709" duration="2598000" />
+      <workItem from="1696861987404" duration="298000" />
+      <workItem from="1697481044014" duration="914000" />
+      <workItem from="1697998413775" duration="1921000" />
+      <workItem from="1698408697638" duration="309000" />
+      <workItem from="1698865631539" duration="6117000" />
+      <workItem from="1699264734834" duration="81000" />
+      <workItem from="1699439152558" duration="6865000" />
+      <workItem from="1699549385502" duration="1739000" />
+      <workItem from="1699982327038" duration="3436000" />
+      <workItem from="1701290168970" duration="6419000" />
+      <workItem from="1701447216160" duration="4481000" />
+      <workItem from="1701543097491" duration="5920000" />
+      <workItem from="1702331544039" duration="2975000" />
+      <workItem from="1702591602717" duration="2678000" />
+      <workItem from="1702633135995" duration="3194000" />
+      <workItem from="1703260609527" duration="4858000" />
+      <workItem from="1703372894362" duration="5818000" />
+      <workItem from="1703594167639" duration="1559000" />
+      <workItem from="1703633911176" duration="1974000" />
+      <workItem from="1703705934808" duration="8872000" />
+      <workItem from="1703720978765" duration="1482000" />
+      <workItem from="1703758162389" duration="1788000" />
+      <workItem from="1703760113089" duration="252000" />
+      <workItem from="1703801223441" duration="2247000" />
+      <workItem from="1703977181794" duration="3892000" />
+      <workItem from="1704206252324" duration="10480000" />
+      <workItem from="1704313423945" duration="17000" />
+      <workItem from="1704448246302" duration="1830000" />
+      <workItem from="1704527876636" duration="1324000" />
+      <workItem from="1704750346672" duration="8000" />
+      <workItem from="1704810263790" duration="18415000" />
+      <workItem from="1705013695791" duration="642000" />
+      <workItem from="1705707112527" duration="511000" />
+      <workItem from="1705837334868" duration="576000" />
+    </task>
+    <task id="LOCAL-00001" summary="c2">
+      <created>1705707216618</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1705707216618</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="c2" />
+    <option name="LAST_COMMIT_MESSAGE" value="c2" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/manage_py$views.coverage" NAME="views Coverage Results" MODIFIED="1704810882082" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/udemyproject/main" />
+  </component>
+</project>

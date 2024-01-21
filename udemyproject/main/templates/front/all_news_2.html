@@ -1,0 +1,110 @@
+{% extends 'front/master.html' %}
+{% load static %}
+{% block headblock %}
+    <title>{{ site.name }} | News</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="{{ site.seo_txt }}">
+    <meta name="keywords" content="{{ site.seo_key_words }}">
+{% endblock %}
+{% block mainblock %}
+    <section class="bg0 p-t-60 p-b-40">
+        <div class="container">
+            <div class="col-sm-6 col-md-6">
+                <form action="{% url 'all_news_search' %}" method="post">
+                    {% csrf_token %}
+                    <input class="bo-1-rad-3 bocl13 size-a-20 f1-s-13 cl5 plh6 p-rl-18 m-b-15" type="text"
+                           name="txt" placeholder="Search">
+                    <div class="col-md-6">
+                        <select id="category" name="category" class="select-chosen"
+                                data-placeholder="Choose a category.." style="width: 250px;">
+                            <option value="0">All News</option>
+
+                            {% for category in categories %}
+                                {% if category.count != 0 %}
+                                    <option value="{{ category.pk }}">{{ category.name }}</option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                    </div>
+                    {#                    <input1 name="txt" placeholder="Search">#}
+
+                    <button type="submit"
+                            class="size-a20 bg4 borad-3 f1-s-12 cl0 hov-btn1 trans-03 p-rl-15 m-t-12">
+                        Search
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest -->
+    <section class="bg0 p-t-60 p-b-40">
+        <div class="container">
+
+            <div class="row p-t-35">
+                {% for i in allnews %}
+                    <div class="col-sm-6 col-md-4">
+                        <!-- Item latest -->
+                        <div class="m-b-45">
+                            <a href="{% url 'news_detail' word=i.name %}"
+                               class="wrap-pic-w hov1 trans-03">
+                                <img src="{{ i.picurl }}" alt="IMG"
+                                     style="display: inline-block;width: 330px;height: 240px;">
+                            </a>
+
+                            <div class="p-t-16">
+                                <h5 class="p-b-5">
+                                    <a href="{% url 'news_detail' word=i.name %}"
+                                       class="f1-m-3 cl2 hov-cl10 trans-03">
+                                        {{ i.name }}
+                                    </a>
+                                </h5>
+
+                                <p>{{ i.short_txt|safe }}</p>
+
+                                <span class="cl8">
+								<a href="#" class="f1-s-4 cl8 hov-cl10 trans-03">
+									by {{ i.writer }}
+								</a>
+
+								<span class="f1-s-3 m-rl-3">
+									-
+								</span>
+
+								<span class="f1-s-3">
+									{{ i.date }}
+								</span>
+							</span>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            Page {{ allnews.number }} from {{ allnews.paginator.num_pages }}
+            <br>
+            {% if allnews.has_previous %}
+                <a href="?page={{ allnews.previous_page_number }}" data-toggle="tooltip"
+                   title="Next"
+                   class="btn btn-xs btn-default">Previous</a>
+            {% endif %}
+            {% for i in allnews.paginator.page_range %}
+                {% if allnews.number == i %}
+                    <a href="#" onclick="False" data-toggle="tooltip"
+                       title="{{ Disabled }}"
+                       class="btn btn-xs btn-default">{{ i }}</a>
+                {% else %}
+                    <a href="?page={{ i }}" data-toggle="tooltip"
+                       title="{{ i }}"
+                       class="btn btn-xs btn-default">{{ i }}</a>
+                {% endif %}
+            {% endfor %}
+            {% if allnews.has_next %}
+                <a href="?page={{ allnews.next_page_number }}" data-toggle="tooltip"
+                   title="Next"
+                   class="btn btn-xs btn-default">Next</a>
+            {% endif %}
+        </div>
+    </section>
+
+
+{% endblock %}

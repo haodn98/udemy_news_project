@@ -1,0 +1,123 @@
+{% extends 'back/master.html' %}
+{% load static %}
+
+{% block headblock %}
+
+    <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+
+{% endblock %}
+
+{% block mainblock %}
+    <div class="content-header">
+        <div class="header-section">
+            <h1>
+                <i class="fa fa-table"></i>Add news<br><small>Add any news you want</small>
+            </h1>
+        </div>
+    </div>
+    <ul class="breadcrumb breadcrumb-top">
+        <li>News</li>
+        <li><a href="/panel/news/list">List</a></li>
+        <li><a href="/panel/news/add_news">Add news</a></li>
+    </ul>
+    <div class="row">
+        <!-- Basic Form Elements Block -->
+        <div class="block">
+            <!-- Basic Form Elements Title -->
+            <div class="block-title">
+                <div class="block-options pull-right">
+                    <a href="javascript:void(0)"
+                       class="btn btn-alt btn-sm btn-default toggle-bordered enable-tooltip" data-toggle="button"
+                       title="Toggles .form-bordered class">No Borders</a>
+                </div>
+                <h2><strong>Add news</strong></h2>
+            </div>
+            <!-- END Form Elements Title -->
+
+            <!-- Basic Form Elements Content -->
+            <form action="{% url 'news_add' %}" method="post" enctype="multipart/form-data"
+                  class="form-horizontal form-bordered">
+                {% csrf_token %}
+                {% if error %}
+                    <h2>
+                        <i class="fa"></i> Error <br><small>{{ error }}</small>
+                    </h2>
+                {% endif %}
+                <div class="form-group">
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" placeholder="News title" id="newstitle"
+                               name="newstitle">
+                    </div>
+                    <div class="col-md-6">
+
+                        <select id="newscat" name="newscat" class="select-chosen"
+                                data-placeholder="Choose a category.." style="width: 250px;">
+                            <option></option>
+                            {% for subcategory in categories %}
+
+                                <option value="{{ subcategory.pk }}">{{ subcategory.catname }}
+                                    | {{ subcategory.name }}</option>
+
+                            {% endfor %}
+                        </select>
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <textarea type="text" class="form-control" placeholder="Short txt" name="newstxtshort"
+                                  id="newstxtshort">Short txt</textarea>
+                    </div>
+                    <script>
+                        CKEDITOR.replace('newstxtshort');
+                    </script>
+
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <textarea type="text" class="form-control" placeholder="Body txt" id="newstxt"
+                                  name="newstxt">Body txt</textarea>
+
+                    </div>
+                    <script>
+                        CKEDITOR.replace('newstxt');
+                    </script>
+
+                </div>
+                <div class="form-group">
+                    <div class="col-md-6">
+                        <textarea type="text" class="form-control" placeholder="Tags" id="tag"
+                                  name="tag"></textarea>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <input type="file" class="form-control" placeholder="Image" id="newsimg"
+                               name="newsimg"></input>
+                    </div>
+                </div>
+
+                <div class="form-group ">
+                    <div class="col-md-6">
+                        <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-angle-right"></i>
+                            Submit
+                        </button>
+                    </div>
+                </div>
+
+
+            </form>
+            <!-- END Basic Form Elements Content -->
+        </div>
+    </div>
+{% endblock %}
+
+{% block footerblock %}
+
+    <script src="{% static 'back/js/pages/formsGeneral.js' %}"></script>
+    <script>$(function () {
+        FormsGeneral.init();
+    });</script>
+{% endblock %}

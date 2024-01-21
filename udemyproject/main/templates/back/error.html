@@ -1,0 +1,28 @@
+{% extends 'back/master.html' %}
+{% load static %}
+{% block headblock %}
+    <script>
+    function goback(){
+        window.history.back()
+    }
+    </script>
+{% endblock %}
+
+{% block mainblock %}
+    <div class="content-header">
+        <div class="header-section">
+            <h1>
+                <i class="fa fa-table"></i>{{ error }}<br><small></small>
+            </h1>
+            <button onclick="goback()">Back</button>
+        </div>
+    </div>
+{% endblock %}
+
+{% block footerblock %}
+
+    <script src="{% static 'back/js/pages/formsGeneral.js' %}"></script>
+    <script>$(function () {
+        FormsGeneral.init();
+    });</script>
+{% endblock %}

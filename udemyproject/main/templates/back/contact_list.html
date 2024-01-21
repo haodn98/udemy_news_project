@@ -1,0 +1,70 @@
+{% extends 'back/master.html' %}
+{% load static %}
+
+
+{% block mainblock %}
+    <!-- Datatables Header -->
+    <div class="content-header">
+        <div class="header-section">
+            <h1>
+                <i class="fa fa-table"></i>Message list<br><small></small>
+            </h1>
+        </div>
+    </div>
+    <ul class="breadcrumb breadcrumb-top">
+        <li>Messages</li>
+    </ul>
+    <!-- END Datatables Header -->
+
+    <!-- Datatables Content -->
+    <div class="block full">
+        <div class="block-title">
+            <h2><strong>Messages</strong> List</h2>
+        </div>
+        <div class="table-responsive">
+
+            <table id="example-datatable" class="table table-vcenter table-condensed table-bordered">
+                <thead>
+                <tr>
+                    <th class="text-center">ID</th>
+                    <th class="text-center">Name</th>
+                    <th class="text-center">Email</th>
+                    <th class="text-center">Date</th>
+                    <th class="text-center" style="width: 700px;">Message</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for message in messages %}
+                    <tr>
+                        <td class="text-center">{{ message.pk }}</td>
+                        <td class="text-center">{{ message.name }}</td>
+                        <td class="text-center">{{ message.email}}</td>
+                        <td class="text-center">{{ message.date}}</td>
+                        <td class="text-center">{{ message.message}}</td>
+                        <td class="text-center">
+                            <div class="btn-group">
+                                <a href="{% url 'contact_answer' pk=message.pk %}" data-toggle="tooltip" title="Answer"
+                                   class="btn btn-xs btn-default"><i class="fa"></i>Answer</a>
+                                <a href="{% url 'contact_del' pk=message.pk %}" data-toggle="tooltip" title="Delete"
+                                   class="btn btn-xs btn-danger"><i class="fa">Delete</i></a>
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- END Datatables Content -->
+
+{% endblock %}
+
+{% block footerblock %}
+    <!-- Load and execute javascript code used only in this page -->
+    <script src="{% static 'back/js/pages/tablesDatatables.js' %}"></script>
+    <script>$(function () {
+        TablesDatatables.init();
+    });</script>
+{% endblock %}

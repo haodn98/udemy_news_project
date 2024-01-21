@@ -1,0 +1,91 @@
+{% extends 'back/master.html' %}
+{% load static %}
+
+
+
+{% block mainblock %}
+    <!-- Datatables Header -->
+    <div class="content-header">
+        <div class="header-section">
+            <h1>
+                <i class="fa fa-table"></i>Groups<br><small></small>
+            </h1>
+        </div>
+    </div>
+    <ul class="breadcrumb breadcrumb-top">
+        <li>Groups</li>
+
+    </ul>
+    <!-- END Datatables Header -->
+
+    <div class='block'>
+        <form action="{% url 'manager_group_add' %}" method="post" enctype="multipart/form-data"
+              class="form-horizontal form-bordered">
+            {% csrf_token %}
+            {% if error %}
+                <h2>
+                    <i class="fa"></i> Error <br><small>{{ error }}</small>
+                </h2>
+            {% endif %}
+            <div class="form-group">
+                <div class="col-md-6">
+                    <input type="text" class="form-control" placeholder="Group Name" id="group_add"
+                           name="group_add">
+                </div>
+            </div>
+
+            <div class="form-group ">
+                <div class="col-md-6">
+                    <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-angle-right"></i>
+                        Submit
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- Datatables Content -->
+    <div class="block full">
+        <div class="block-title">
+            <h2><strong>Groups</strong> List</h2>
+        </div>
+        <div class="table-responsive">
+            <table id="example-datatable" class="table table-vcenter table-condensed table-bordered">
+                <thead>
+                <tr>
+                    <th class="text-center">ID</th>
+                    <th class="text-center">Name</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                {% for group in groups %}
+                    <tr>
+                        <td class="text-center">{{ group.pk }}</td>
+                        <td class="text-center">{{ group.name }}</td>
+
+
+                        <td class="text-center">
+                            <div class="btn-group">
+                                <a href="{% url 'group_perms' name=group.name %}" data-toggle="tooltip" title="Perms"
+                                   class="btn btn-xs btn-default"><i class="fa fa-pencil"></i>Perms</a>
+                                <a href="{% url 'manager_group_del' pk=group.pk %}" data-toggle="tooltip" title="Delete"
+                                   class="btn btn-xs btn-danger"><i class="fa fa-times">Delete</i></a>
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- END Datatables Content -->
+
+{% endblock %}
+
+{% block footerblock %}
+    <!-- Load and execute javascript code used only in this page -->
+    <script src="{% static 'back/js/pages/tablesDatatables.js' %}"></script>
+    <script>$(function () {
+        TablesDatatables.init();
+    });</script>
+{% endblock %}

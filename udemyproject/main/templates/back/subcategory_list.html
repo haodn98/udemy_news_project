@@ -1,0 +1,64 @@
+{% extends 'back/master.html' %}
+{% load static %}
+
+
+
+{% block mainblock %}
+    <!-- Datatables Header -->
+    <div class="content-header">
+        <div class="header-section">
+            <h1>
+                <i class="fa fa-table"></i>Category list<br><small></small>
+            </h1>
+        </div>
+    </div>
+    <ul class="breadcrumb breadcrumb-top">
+        <li>Categories</li>
+        <li><a href="/panel/category/list">Subcategories List</a></li>
+    </ul>
+    <!-- END Datatables Header -->
+
+    <!-- Datatables Content -->
+    <div class="block full">
+        <div class="block-title">
+            <h2><strong>Subcategories</strong> List</h2>
+        </div>
+        <div class="table-responsive">
+            <table id="example-datatable" class="table table-vcenter table-condensed table-bordered">
+                <thead>
+                <tr>
+                    <th class="text-center">ID</th>
+                    <th>Category</th>
+                    <th>Title</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for subcategory in data %}
+                    <tr>
+                        <td class="text-center">{{ subcategory.pk }}</td>
+                        <td class="text-center">{{ subcategory.catname }}</td>
+                        <td class="text-center">{{ subcategory.name }}</td>
+                        <td class="text-center">
+                            <div class="btn-group">
+                                <a href="{% url 'subcategory_delete' pk=subcategory.pk%}" data-toggle="tooltip" title="Delete"
+                                   class="btn btn-xs btn-danger">Delete<i class="fa fa-times"></i></a>
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- END Datatables Content -->
+
+{% endblock %}
+
+{% block footerblock %}
+    <!-- Load and execute javascript code used only in this page -->
+    <script src="{% static 'back/js/pages/tablesDatatables.js' %}"></script>
+    <script>$(function () {
+        TablesDatatables.init();
+    });</script>
+{% endblock %}
